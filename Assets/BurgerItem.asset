@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Burger
   icon: {fileID: 21300000, guid: 028beddecc211d44087682d9c921ecca, type: 3}
   itemType: 1
-  worldPrefab: {fileID: 0}
+  worldPrefab: {fileID: 4326439555736506527, guid: bba0bebfbe514f945b04c35786e250d0, type: 3}
