@@ -97,20 +97,7 @@ public class InventorySystem : MonoBehaviour
 
         Debug.Log($"Used item: {data.itemName}");
 
-        switch (data.itemType)
-        {
-            case ItemType.meat:
-               
-
-
-                break;
-
-            case ItemType.carrot:
-         
-
-                break;
-
-        }
+        
 
         UpdateInventoryUI();
     }

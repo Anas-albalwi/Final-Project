@@ -1,20 +1,20 @@
 using UnityEngine;
+
 public enum ItemType
 {
     Burger,
-    meat,
+    Meat,
     Cheese,
-    carrot,
-
-
-
+    Carrot,
+    Tool,
+    Key
 }
-public class ItemData : MonoBehaviour
+
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
+public class ItemData : ScriptableObject
 {
-   
     public string itemName;
-    //public Sprite icon;
+    public Sprite icon;
     public ItemType itemType;
-   public GameObject GameObject;
+    public GameObject worldPrefab;
 }
-
