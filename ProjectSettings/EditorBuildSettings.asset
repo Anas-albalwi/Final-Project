@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Nawaf Folder/Main Menu.unity
+    guid: 9f95f0bec83b9ea45b8db02674f36ff8
+  - enabled: 1
+    path: Assets/Nawaf Folder/TheNawaf.unity
+    guid: 0274aade6bfab6e468d2edf189a60ff0
+  - enabled: 1
     path: Assets/Scenes/Test.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
