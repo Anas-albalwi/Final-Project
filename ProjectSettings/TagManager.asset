@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Item
+  - Alarm
   layers:
   - Default
   - TransparentFX

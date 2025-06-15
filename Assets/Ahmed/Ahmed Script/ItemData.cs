@@ -2,10 +2,9 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Burger,
-    Meat,
-    Cheese,
-    Carrot,
+    Lighter,
+    Charcoal,
+    Incense,
     Tool,
     Key
 }
@@ -17,4 +16,5 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public ItemType itemType;
     public GameObject worldPrefab;
+    public GameObject previewPrefab;
 }

@@ -14,9 +14,12 @@ public class PlayerInteractor : MonoBehaviour
 
     public TextMeshProUGUI take;
     public GameObject pickupPanel;
+    private GameObject currentPreviewObject;
 
     public Transform throwPoint;       
     public float throwForce = 5f;
+    public bool hasActivatedIncense = false;
+
 
     void Update()
     {
@@ -27,6 +30,8 @@ public class PlayerInteractor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3)) selectedSlotIndex = 2;
         if (Input.GetKeyDown(KeyCode.Alpha4)) selectedSlotIndex = 3;
         if (Input.GetKeyDown(KeyCode.Alpha5)) selectedSlotIndex = 4;
+
+        ShowItemPreview();
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -40,8 +45,16 @@ public class PlayerInteractor : MonoBehaviour
         {
             ThrowItem();
         }
-    }
 
+    }
+    void LateUpdate()
+    {
+        if (currentPreviewObject != null)
+        {
+            currentPreviewObject.transform.position = throwPoint.position + transform.forward * 1f;
+            currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.forward);
+        }
+    }
     void TryInteract()
     {
         Ray ray = new Ray(transform.position, transform.forward);
@@ -158,34 +171,51 @@ public class PlayerInteractor : MonoBehaviour
         ItemData item = inventoryItems[selectedSlotIndex];
         if (item == null)
         {
-            Debug.Log("❌ No item in selected slot.");
+            Debug.Log("No item in selected slot.");
             return;
         }
 
         switch (item.itemType)
         {
-            case ItemType.Burger:
-                Debug.Log("🍔 You ate a burger!");
+            case ItemType.Lighter:
+                Debug.Log("Used lighter.");
                 break;
 
-            case ItemType.Meat:
-                Debug.Log("🥩 You used meat!");
-                break;
-
-            case ItemType.Cheese:
-                Debug.Log("🧀 You used cheese!");
+            case ItemType.Charcoal:
+                Debug.Log("Used charcoal.");
                 break;
 
             case ItemType.Key:
-                Debug.Log("🔑 You used a key!");
+                Debug.Log("Used key.");
                 break;
 
             case ItemType.Tool:
-                Debug.Log("🔧 You used a tool!");
+                Debug.Log("Used tool.");
                 break;
 
-            case ItemType.Carrot:
-                Debug.Log("🥕 You ate a carrot!");
+            case ItemType.Incense:
+                bool hasCharcoal = false;
+                bool hasLighter = false;
+
+                foreach (ItemData i in inventoryItems)
+                {
+                    if (i == null) continue;
+
+                    if (i.itemType == ItemType.Charcoal)
+                        hasCharcoal = true;
+                    else if (i.itemType == ItemType.Lighter)
+                        hasLighter = true;
+                }
+
+                if (hasCharcoal && hasLighter)
+                {
+                    hasActivatedIncense = true;
+                    Debug.Log("Incense has been activated.");
+                }
+                else
+                {
+                    Debug.Log("You need both charcoal and a lighter to activate the incense.");
+                }
                 break;
 
             default:
@@ -193,8 +223,26 @@ public class PlayerInteractor : MonoBehaviour
                 break;
         }
 
-        inventoryItems[selectedSlotIndex] = null;
-        currentItemCount--;
+        // inventoryItems[selectedSlotIndex] = null;
+        // currentItemCount--;
         UpdateInventoryUI();
     }
+
+    void ShowItemPreview()
+    {
+        if (currentPreviewObject != null)
+        {
+            Destroy(currentPreviewObject);
+            currentPreviewObject = null;
+        }
+
+        ItemData item = inventoryItems[selectedSlotIndex];
+        if (item != null && item.previewPrefab != null)
+        {
+            currentPreviewObject = Instantiate(item.previewPrefab, throwPoint.position + transform.forward * 1f, Quaternion.identity);
+            currentPreviewObject.transform.SetParent(null); 
+            currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.forward);
+        }
+    }
+
 }
