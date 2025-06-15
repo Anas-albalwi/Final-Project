@@ -6,7 +6,8 @@ public enum ItemType
     Charcoal,
     Incense,
     Tool,
-    Key
+    Key,
+    Fuse
 }
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]

@@ -8,15 +8,15 @@ public class PlayerInteractor : MonoBehaviour
     public LayerMask interactLayer;
     private int selectedSlotIndex = 0;
 
-    public ItemData[] inventoryItems = new ItemData[10]; 
-    public Image[] inventorySlotImages; 
+    public ItemData[] inventoryItems = new ItemData[10];
+    public Image[] inventorySlotImages;
     private int currentItemCount = 0;
 
     public TextMeshProUGUI take;
     public GameObject pickupPanel;
     private GameObject currentPreviewObject;
 
-    public Transform throwPoint;       
+    public Transform throwPoint;
     public float throwForce = 5f;
     public bool hasActivatedIncense = false;
 
@@ -25,7 +25,22 @@ public class PlayerInteractor : MonoBehaviour
     {
         CheckHover();
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) selectedSlotIndex = 0;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Ray ray = new Ray(transform.position, transform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
+            {
+                ElectricBoxInteraction box = hit.collider.GetComponent<ElectricBoxInteraction>();
+                if (box != null)
+                {
+                    box.TryActivate(this);
+                }
+
+            }
+        }
+
+            if (Input.GetKeyDown(KeyCode.Alpha1)) selectedSlotIndex = 0;
         if (Input.GetKeyDown(KeyCode.Alpha2)) selectedSlotIndex = 1;
         if (Input.GetKeyDown(KeyCode.Alpha3)) selectedSlotIndex = 2;
         if (Input.GetKeyDown(KeyCode.Alpha4)) selectedSlotIndex = 3;
@@ -37,7 +52,7 @@ public class PlayerInteractor : MonoBehaviour
         {
             TryInteract();
         }
-        if (Input.GetMouseButtonDown(1)) 
+        if (Input.GetMouseButtonDown(1))
         {
             UseItem();
         }
@@ -46,36 +61,42 @@ public class PlayerInteractor : MonoBehaviour
             ThrowItem();
         }
 
-    }
-    void LateUpdate()
-    {
-        if (currentPreviewObject != null)
+    
+        void LateUpdate()
         {
-            currentPreviewObject.transform.position = throwPoint.position + transform.forward * 1f;
-            currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.forward);
-        }
-    }
-    void TryInteract()
-    {
-        Ray ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
-        {
-            if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+            if (currentPreviewObject != null)
             {
-                interactable.Collect(this); 
+                currentPreviewObject.transform.position = throwPoint.position + transform.forward * 1f;
+                currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.forward);
             }
         }
-    }
-
-    void CheckHover()
-    {
-        Ray ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
+        void TryInteract()
         {
-            if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+            Ray ray = new Ray(transform.position, transform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
             {
-                take.text = $"Press E to take {hit.collider.name}";
-                pickupPanel.SetActive(true);
+                if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+                {
+                    interactable.Collect(this);
+                }
+            }
+        }
+
+        void CheckHover()
+        {
+            Ray ray = new Ray(transform.position, transform.forward);
+            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
+            {
+                if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+                {
+                    take.text = $"Press E to take {hit.collider.name}";
+                    pickupPanel.SetActive(true);
+                }
+                else
+                {
+                    take.text = $"You see a {hit.collider.name}, but you can't take it.";
+                    pickupPanel.SetActive(true);
+                }
             }
             else
             {
@@ -83,12 +104,8 @@ public class PlayerInteractor : MonoBehaviour
                 take.text = "";
             }
         }
-        else
-        {
-            pickupPanel.SetActive(false);
-            take.text = "";
-        }
     }
+
 
     public bool AddToInventory(ItemData item)
     {
@@ -139,13 +156,13 @@ public class PlayerInteractor : MonoBehaviour
 
         if (item == null)
         {
-            Debug.Log("⚠️ No item in selected slot to throw.");
+            Debug.Log(" No item in selected slot to throw.");
             return;
         }
 
         if (item.worldPrefab == null)
         {
-            Debug.LogWarning($"⚠️ Item '{item.itemName}' does not have a worldPrefab assigned.");
+            Debug.LogWarning($" Item '{item.itemName}' does not have a worldPrefab assigned.");
             return;
         }
 
