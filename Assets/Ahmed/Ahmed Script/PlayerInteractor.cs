@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class PlayerInteractor : MonoBehaviour
 {
@@ -21,13 +23,61 @@ public class PlayerInteractor : MonoBehaviour
     public bool hasActivatedIncense = false;
 
 
-    void Update()
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        CheckHover();
-
-
-        if (Input.GetKeyDown(KeyCode.E))
+        if (context.performed)
         {
+            TryInteract();
+            electercal();
+        }
+    }
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ThrowItem();
+
+        }
+    }
+    public void OnUse(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            UseItem();
+
+        }
+    }
+
+    public void OnRight(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            invantoryOnRight();
+            Debug.Log(selectedSlotIndex);
+        }
+    }
+    public void OnLeft(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            invantoryOnLeft();
+            Debug.Log(selectedSlotIndex);
+
+        }
+    }
+    void TryInteract()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
+        {
+            if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+            {
+                interactable.Collect(this);
+            }
+        }
+    }
+    void electercal() {
+        
             Ray ray = new Ray(transform.position, transform.forward);
             if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
             {
@@ -38,9 +88,20 @@ public class PlayerInteractor : MonoBehaviour
                 }
 
             }
+        
+    }
+
+    void Update()
+    {
+        CheckHover();
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            electercal();
         }
 
-            if (Input.GetKeyDown(KeyCode.Alpha1)) selectedSlotIndex = 0;
+        if (Input.GetKeyDown(KeyCode.Alpha1)) selectedSlotIndex = 0;
         if (Input.GetKeyDown(KeyCode.Alpha2)) selectedSlotIndex = 1;
         if (Input.GetKeyDown(KeyCode.Alpha3)) selectedSlotIndex = 2;
         if (Input.GetKeyDown(KeyCode.Alpha4)) selectedSlotIndex = 3;
@@ -62,50 +123,39 @@ public class PlayerInteractor : MonoBehaviour
         }
 
     
-        void LateUpdate()
+       
+    }
+    void LateUpdate()
+    {
+        if (currentPreviewObject != null)
         {
-            if (currentPreviewObject != null)
-            {
-                currentPreviewObject.transform.position = throwPoint.position + transform.forward * 1f;
-                currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.forward);
-            }
-        }
-        void TryInteract()
-        {
-            Ray ray = new Ray(transform.position, transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
-            {
-                if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
-                {
-                    interactable.Collect(this);
-                }
-            }
-        }
-
-        void CheckHover()
-        {
-            Ray ray = new Ray(transform.position, transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
-            {
-                if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
-                {
-                    take.text = $"Press E to take {hit.collider.name}";
-                    pickupPanel.SetActive(true);
-                }
-                else
-                {
-                    take.text = $"You see a {hit.collider.name}, but you can't take it.";
-                    pickupPanel.SetActive(true);
-                }
-            }
-            else
-            {
-                pickupPanel.SetActive(false);
-                take.text = "";
-            }
+            currentPreviewObject.transform.position = throwPoint.position + transform.forward * 1f;
+            currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.forward);
         }
     }
 
+    void CheckHover()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
+        {
+            if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
+            {
+                take.text = $"Press E to take {hit.collider.name}";
+                pickupPanel.SetActive(true);
+            }
+            else
+            {
+                take.text = $"You see a {hit.collider.name}, but you can't take it.";
+                pickupPanel.SetActive(true);
+            }
+        }
+        else
+        {
+            pickupPanel.SetActive(false);
+            take.text = "";
+        }
+    }
 
     public bool AddToInventory(ItemData item)
     {
@@ -261,5 +311,27 @@ public class PlayerInteractor : MonoBehaviour
             currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.forward);
         }
     }
+    void invantoryOnRight() {
 
+        if (selectedSlotIndex<4) { 
+        selectedSlotIndex +=1;
+    }else{
+            selectedSlotIndex = 0;
+        }
+
+
+    }
+    void invantoryOnLeft()
+    {
+
+        if (selectedSlotIndex >0)
+        {
+            selectedSlotIndex -= 1;
+        }
+        else
+        {
+            selectedSlotIndex = 4;
+        }
+
+    }
 }

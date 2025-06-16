@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 720109448385734153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -10.01, y: 0.6600001, z: -2.6799998}
+  m_LocalPosition: {x: -10.009999, y: 0.09699988, z: -2.6799998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -186,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 2999775478929479582}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0.38, z: 0.19}
+  m_LocalPosition: {x: -0.02, y: -0.183, z: 0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -255,7 +255,7 @@ Transform:
   m_GameObject: {fileID: 4139309071231531524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 1, z: -7.41}
+  m_LocalPosition: {x: 20.82, y: 7.06, z: -5.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 531ab1efda7f4f44aa6acb836679945a, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -394,13 +394,13 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 396535d726e948b4ab984f9da220c500, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: -5589936746291112483}
+        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -410,13 +410,13 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: -5589936746291112483}
+        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -424,6 +424,46 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 63311809-fbbe-4470-a5d0-28c42867dac2
     m_ActionName: 'Player/Look[/XInputControllerWindows/rightStick,/XInputControllerWindows1/rightStick]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f42e6951-3119-4290-b143-a8e125c63e64
+    m_ActionName: 'Player/Interact[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a4dc3a0f-d218-4646-af90-219fde2951e3
+    m_ActionName: 'Player/Start[/XInputControllerWindows/start,/XInputControllerWindows1/start]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 099ae485-cd04-411a-9ccb-b111a252ce86
+    m_ActionName: 'Player/Attack[/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1d823c32-3a3b-4fb5-80a5-b3f780a48579
+    m_ActionName: 'Player/Throw[/XInputControllerWindows/buttonEast]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3e16bf8e-33b4-4f31-8747-0cca6b8e38a2
+    m_ActionName: 'Player/use[/XInputControllerWindows/rightTrigger]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 46f5e688-2a8f-461b-8c07-21942b1c4758
+    m_ActionName: 'Player/InvRight[/XInputControllerWindows/dpad/right]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b319d771-cceb-4d04-b80f-0d8111419443
+    m_ActionName: 'Player/InvLeft[/XInputControllerWindows/dpad/left]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -446,6 +486,7 @@ MonoBehaviour:
   PitchSpeed: 180
   MinPitch: -60
   MaxPitch: 60
+  camPivot: {fileID: 3639306514429150744}
 --- !u!1 &8621875428657117593
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +515,7 @@ Transform:
   m_GameObject: {fileID: 8621875428657117593}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01999998, y: 1.3800001, z: 0.19000006}
+  m_LocalPosition: {x: -0.020000458, y: 0.8169999, z: 0.19000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

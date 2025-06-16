@@ -2091,6 +2091,7 @@ GameObject:
   - component: {fileID: 2030750413}
   - component: {fileID: 2030750418}
   - component: {fileID: 2030750419}
+  - component: {fileID: 2030750420}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -2253,7 +2254,7 @@ MonoBehaviour:
   interactRange: 2
   interactLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   inventoryItems:
   - {fileID: 0}
   - {fileID: 0}
@@ -2276,6 +2277,132 @@ MonoBehaviour:
   throwPoint: {fileID: 1182729906}
   throwForce: 5
   hasActivatedIncense: 0
+--- !u!114 &2030750420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030750412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 531ab1efda7f4f44aa6acb836679945a, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dbc26c7e-8f10-4a90-b63b-b86c2c6ef195
+    m_ActionName: 'Player/Move[/XInputControllerWindows/leftStick,/XInputControllerWindows1/leftStick]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 63311809-fbbe-4470-a5d0-28c42867dac2
+    m_ActionName: 'Player/Look[/XInputControllerWindows/rightStick,/XInputControllerWindows1/rightStick]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2030750419}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f42e6951-3119-4290-b143-a8e125c63e64
+    m_ActionName: 'Player/Interact[/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a4dc3a0f-d218-4646-af90-219fde2951e3
+    m_ActionName: 'Player/Start[/XInputControllerWindows/start,/XInputControllerWindows1/start]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 099ae485-cd04-411a-9ccb-b111a252ce86
+    m_ActionName: 'Player/Attack[/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2030750419}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1d823c32-3a3b-4fb5-80a5-b3f780a48579
+    m_ActionName: 'Player/Throw[/XInputControllerWindows/buttonEast]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2030750419}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnUse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3e16bf8e-33b4-4f31-8747-0cca6b8e38a2
+    m_ActionName: 'Player/use[/XInputControllerWindows/rightTrigger]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2030750419}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 46f5e688-2a8f-461b-8c07-21942b1c4758
+    m_ActionName: 'Player/InvRight[/XInputControllerWindows/dpad/right]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2030750419}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b319d771-cceb-4d04-b80f-0d8111419443
+    m_ActionName: 'Player/InvLeft[/XInputControllerWindows/dpad/left]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &2040387478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,6 +2651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fuse
       objectReference: {fileID: 0}
+    - target: {fileID: 1788804928445884055, guid: 68bae41797008d945b49e70f02dc6b68, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2586,7 +2717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6171517834899466105, guid: 75736709d1ae90e43a171c43808fc603, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2608,6 +2739,10 @@ PrefabInstance:
     - target: {fileID: 4326439555736506527, guid: bba0bebfbe514f945b04c35786e250d0, type: 3}
       propertyPath: m_Name
       value: Lighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326439555736506527, guid: bba0bebfbe514f945b04c35786e250d0, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5356350307037122185, guid: bba0bebfbe514f945b04c35786e250d0, type: 3}
       propertyPath: m_LocalPosition.x

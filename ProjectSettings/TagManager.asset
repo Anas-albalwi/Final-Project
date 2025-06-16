@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Alarm
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - P1
   - P2
   - Player
-  - 
+  - interactive
   - 
   - 
   - 
