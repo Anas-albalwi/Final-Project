@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Charcoal
   m_EditorClassIdentifier: 
   itemName: Charcoal
-  icon: {fileID: 21300000, guid: 028beddecc211d44087682d9c921ecca, type: 3}
+  icon: {fileID: 21300000, guid: e8cebae9efd239c49b4f1a6863de76a5, type: 3}
   itemType: 1
   worldPrefab: {fileID: 9203863848944627416, guid: bdd42b151e0b40c418580e62add47ceb, type: 3}
   previewPrefab: {fileID: 9203863848944627416, guid: aa288d8d8d126fa42933e8c20ab80ef1, type: 3}

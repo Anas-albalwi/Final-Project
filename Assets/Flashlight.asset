@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Flashlight
   m_EditorClassIdentifier: 
   itemName: Flashlight
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7bc44002e7396ea4aad324c2efc7b8af, type: 3}
   itemType: 6
   worldPrefab: {fileID: 8185096864315005544, guid: 094b910cf4a3bd740a77bb0f6604b637, type: 3}
   previewPrefab: {fileID: 8185096864315005544, guid: 0a0861d24e9288d4a803eea48352dde8, type: 3}

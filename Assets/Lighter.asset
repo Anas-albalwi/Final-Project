@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lighter
   m_EditorClassIdentifier: 
   itemName: Lighter
-  icon: {fileID: 21300000, guid: 028beddecc211d44087682d9c921ecca, type: 3}
+  icon: {fileID: 21300000, guid: e88232f8ae7741b47abce274b521ecb7, type: 3}
   itemType: 0
   worldPrefab: {fileID: 7635334110519490014, guid: 5dd2077829887cc4db6a468c5aeca182, type: 3}
   previewPrefab: {fileID: 7635334110519490014, guid: 1a86a039446e55e4286e1c64e5ab6e8d, type: 3}

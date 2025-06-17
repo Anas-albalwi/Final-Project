@@ -6,7 +6,9 @@ public enum ItemType
     Charcoal,
     Incense,
     Tool,
-    Key,
+    PoisonKey,
+    ElectricalKey,
+    ReceptionKey,
     Fuse,
     flashlight
 }
