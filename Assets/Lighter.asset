@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Lighter
   icon: {fileID: 21300000, guid: 028beddecc211d44087682d9c921ecca, type: 3}
   itemType: 0
-  worldPrefab: {fileID: 4326439555736506527, guid: bba0bebfbe514f945b04c35786e250d0, type: 3}
-  previewPrefab: {fileID: 4326439555736506527, guid: c89690a6bf7093445b5825121cd7cce6, type: 3}
+  worldPrefab: {fileID: 7635334110519490014, guid: 5dd2077829887cc4db6a468c5aeca182, type: 3}
+  previewPrefab: {fileID: 7635334110519490014, guid: 1a86a039446e55e4286e1c64e5ab6e8d, type: 3}

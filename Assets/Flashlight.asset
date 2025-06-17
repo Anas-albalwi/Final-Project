@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Flashlight
   icon: {fileID: 0}
   itemType: 6
-  worldPrefab: {fileID: 0}
-  previewPrefab: {fileID: 0}
+  worldPrefab: {fileID: 8185096864315005544, guid: 094b910cf4a3bd740a77bb0f6604b637, type: 3}
+  previewPrefab: {fileID: 8185096864315005544, guid: 0a0861d24e9288d4a803eea48352dde8, type: 3}

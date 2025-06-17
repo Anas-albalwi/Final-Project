@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Fuse
   icon: {fileID: 0}
   itemType: 5
-  worldPrefab: {fileID: 1788804928445884055, guid: 68bae41797008d945b49e70f02dc6b68, type: 3}
-  previewPrefab: {fileID: 1788804928445884055, guid: 92b802f3922d2284d98d987730c7af79, type: 3}
+  worldPrefab: {fileID: 5421541896356938905, guid: 92b802f3922d2284d98d987730c7af79, type: 3}
+  previewPrefab: {fileID: 5421541896356938905, guid: 2fd81ac57ffc6b54fa071174be800b7e, type: 3}
