@@ -45,8 +45,8 @@ public class Test : MonoBehaviour
         // Õ—ﬂ… √„«„/Œ·›
         Vector3 forward = transform.forward * _moveAmt.y;
         Vector3 right = transform.right * _moveAmt.x;
-        //_rb.MovePosition(_rb.position + (forward + right) * WalkSpeed * Time.fixedDeltaTime);
-        _rb.AddForce((forward + right) * WalkSpeed, ForceMode.Force);
+        _rb.MovePosition(_rb.position + (forward + right) * WalkSpeed * Time.fixedDeltaTime);
+        //_rb.AddForce((forward + right) * WalkSpeed, ForceMode.Force);
 
         // œÊ—«‰ √›ﬁÌ ÕÊ· «·„ÕÊ— Y (Ì„Ì‰/Ì”«—)
         float yawDelta = _lookAmt.x * RotateSpeed * Time.fixedDeltaTime;
