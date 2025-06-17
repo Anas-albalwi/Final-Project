@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Incense
   icon: {fileID: 0}
   itemType: 2
-  worldPrefab: {fileID: 6171517834899466105, guid: 825516a14be14584bba49aec580d1e08, type: 3}
-  previewPrefab: {fileID: 6171517834899466105, guid: 75736709d1ae90e43a171c43808fc603, type: 3}
+  worldPrefab: {fileID: 1539127708958788051, guid: a33ecd9c9fd1df34e9eaa58f2f85e157, type: 3}
+  previewPrefab: {fileID: 1539127708958788051, guid: 858ec533684b6e248934f40208273080, type: 3}
