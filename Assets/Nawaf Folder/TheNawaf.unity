@@ -284081,6 +284081,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3767136719003956818, guid: 4ef215bb2a442834796da2ebbdcc105c, type: 3}
+      propertyPath: m_Name
+      value: ReceptionKey
+      objectReference: {fileID: 0}
+    - target: {fileID: -3767136719003956818, guid: 4ef215bb2a442834796da2ebbdcc105c, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
