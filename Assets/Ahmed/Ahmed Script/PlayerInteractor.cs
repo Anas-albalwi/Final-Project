@@ -20,7 +20,9 @@ public class PlayerInteractor : MonoBehaviour
 
     public Transform throwPoint;
     public float throwForce = 5f;
-    public bool hasActivatedIncense = false;
+    public static bool incenseActivated = false;
+    SoundManager SoundManager;
+
 
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -90,7 +92,11 @@ public class PlayerInteractor : MonoBehaviour
             }
         
     }
+     void Start()
+    {
+        SoundManager = SoundManager.Instance;
 
+    }
     void Update()
     {
         CheckHover();
@@ -173,6 +179,7 @@ public class PlayerInteractor : MonoBehaviour
 
         inventoryItems[selectedSlotIndex] = item;
         currentItemCount++;
+        SoundManager.PlaySFX(SoundManager.collect);
 
         Debug.Log($" Added '{item.itemName}' to slot {selectedSlotIndex + 1}.");
         UpdateInventoryUI();
@@ -276,7 +283,7 @@ public class PlayerInteractor : MonoBehaviour
 
                 if (hasCharcoal && hasLighter)
                 {
-                    hasActivatedIncense = true;
+                    PlayerInteractor.incenseActivated = true;
                     Debug.Log("Incense has been activated.");
                 }
                 else
