@@ -267,6 +267,10 @@ public class PlayerInteractor : MonoBehaviour
                 Debug.Log("Used tool.");
                 break;
 
+            case ItemType.flashlight:
+                Debug.Log("Used tool.");
+                break;
+
             case ItemType.Incense:
                 bool hasCharcoal = false;
                 bool hasLighter = false;
