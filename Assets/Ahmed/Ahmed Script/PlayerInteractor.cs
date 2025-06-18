@@ -179,6 +179,7 @@ public class PlayerInteractor : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
         {
+            Debug.Log(hit.collider.name);
             if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
             {
                 take.text = $"Press E to take {hit.collider.name}";

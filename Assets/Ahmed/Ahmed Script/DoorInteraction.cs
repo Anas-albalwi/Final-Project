@@ -38,6 +38,7 @@ public class DoorInteraction : MonoBehaviour
     void Awake()
     {
         interactor = GetComponent<PlayerInteractor>();
+        animator = GetComponent<Animator>();
 
     }
 
@@ -87,7 +88,7 @@ public class DoorInteraction : MonoBehaviour
                         interactor.take.text = "Press E to open The Door";
                         if (triggred)
                         {
-                            animator.SetBool("IsOpen", true);
+                            hit.collider.GetComponent<Animator>().SetBool("IsOpen",true);
                             Debug.Log("You got it");
                             break;
                         }
