@@ -12,9 +12,9 @@ public class DoorInteraction : MonoBehaviour
     public PlayerInteractor interactor;
 
     private bool isHit;
-    private bool triggred = false;  
+    private bool triggred = false;
 
-     public Animator animator;
+    public Animator animator;
     public void OnInteracts(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -24,12 +24,12 @@ public class DoorInteraction : MonoBehaviour
         }
         else
         {
-            triggred= false;
+            triggred = false;
         }
     }
     void Update()
     {
-        
+
 
         CheckForDoor();
         //Debug.Log(triggred);
@@ -81,12 +81,13 @@ public class DoorInteraction : MonoBehaviour
                         continue;
                     }
 
-                    if ( interactor.inventoryItems[i].itemType == ItemType.PoisonKey)
+                    if (interactor.inventoryItems[i].itemType == ItemType.PoisonKey)
                     {
                         interactor.pickupPanel.SetActive(true);
                         interactor.take.text = "Press E to open The Door";
-                        if (triggred) {
-                            animator.SetBool("IsOpen",true);
+                        if (triggred)
+                        {
+                            animator.SetBool("IsOpen", true);
                             Debug.Log("You got it");
                             break;
                         }
@@ -94,6 +95,32 @@ public class DoorInteraction : MonoBehaviour
                 }
             }
 
+            if (hit.collider.CompareTag("Electric"))
+            {
+
+                for (int i = 0; i < interactor.inventoryItems.Length; i++)
+                {
+                    Debug.Log("Current Index: " + i);
+                    if (interactor.inventoryItems[i] == null)
+                    {
+                        Debug.LogWarning("Slot is Empty");
+                        continue;
+                    }
+
+                    if (interactor.inventoryItems[i].itemType == ItemType.Fuse)
+                    {
+                        interactor.pickupPanel.SetActive(true);
+                        interactor.take.text = "Press E to Put The Fuse";
+                        if (triggred)
+                        {
+                            Debug.Log("you can put the fuse");
+                            break;
+                        }
+                    }
+
+                }
+
+            }
         }
     }
 }
