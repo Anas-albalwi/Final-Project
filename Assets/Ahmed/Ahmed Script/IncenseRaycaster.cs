@@ -18,7 +18,7 @@ public class IncenseRaycaster : MonoBehaviour
         player = FindObjectOfType<PlayerInteractor>();
        GameObject[] rains = GameObject.FindGameObjectsWithTag("Rain");
         fire = GameObject.FindGameObjectWithTag("Fire");
-        MetalDoor = GameObject.FindGameObjectWithTag("MetalDoor");
+        //MetalDoor = GameObject.FindGameObjectWithTag("MetalDoor");
 
         for (int i = 0; i < rains.Length; i++)
         {
@@ -48,7 +48,7 @@ public class IncenseRaycaster : MonoBehaviour
                 if (hit.collider.CompareTag("Alarm") && AlarmNotActivated)
                 {
                     runRain();
-                    fire.gameObject.SetActive(false);  
+                    fire.gameObject.SetActive(false); 
 
                     StartCoroutine(TriggerAlarmSequence());
 
