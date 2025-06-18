@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -9083501178137025306}
   - component: {fileID: 5571739364725693787}
   - component: {fileID: 6443554140809508489}
-  - component: {fileID: 9017925673445911847}
   m_Layer: 9
   m_Name: mbhrh_interactive
   m_TagString: Untagged
@@ -145,16 +144,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 98.6936, y: 107.3024, z: 91.02121}
   m_Center: {x: -6.479221, y: 5.344962, z: 6.267216}
---- !u!114 &9017925673445911847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539127708958788051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a0dbe037ba62a948810ae3ac9f49946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: a60a0a665b037bc419c3d7925dffc4e6, type: 2}

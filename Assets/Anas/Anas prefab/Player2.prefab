@@ -986,6 +986,7 @@ MonoBehaviour:
   pickupPanel: {fileID: 6980501960524128896}
   throwPoint: {fileID: 7235001965910890900}
   throwForce: 5
+  pointLight: {fileID: 0}
 --- !u!54 &3875184040474339936
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -994,8 +995,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4139309071231531524}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 0.1
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1011,7 +1012,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &4426002210064894755
 GameObject:

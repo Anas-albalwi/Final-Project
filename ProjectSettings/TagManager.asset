@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Alarm
+  - Door
+  - Room
+  - Rain
+  - Fire
+  - Electric
   layers:
   - Default
   - TransparentFX
@@ -16,7 +21,7 @@ TagManager:
   - P2
   - Player
   - interactive
-  - 
+  - Door
   - 
   - 
   - 

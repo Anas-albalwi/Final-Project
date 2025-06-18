@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
+using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
+using System.Collections;
 
 public class PlayerInteractor : MonoBehaviour
 {
@@ -10,7 +13,7 @@ public class PlayerInteractor : MonoBehaviour
     public LayerMask interactLayer;
     private int selectedSlotIndex = 0;
 
-    public ItemData[] inventoryItems = new ItemData[10];
+    public ItemData[] inventoryItems = new ItemData[5];
     public Image[] inventorySlotImages;
     private int currentItemCount = 0;
 
@@ -22,8 +25,8 @@ public class PlayerInteractor : MonoBehaviour
     public float throwForce = 5f;
     public static bool incenseActivated = false;
     SoundManager SoundManager;
-    public GameObject flashlight;
-    public static bool flashlightactivated = true;
+    public Light pointLight;
+    public static bool flashlightactivated = false;
 
 
 
@@ -58,6 +61,7 @@ public class PlayerInteractor : MonoBehaviour
         if (context.performed)
         {
             invantoryOnRight();
+            ShowItemPreview();
             Debug.Log(selectedSlotIndex);
         }
     }
@@ -66,6 +70,7 @@ public class PlayerInteractor : MonoBehaviour
         if (context.performed)
         {
             invantoryOnLeft();
+            ShowItemPreview();
             Debug.Log(selectedSlotIndex);
 
         }
@@ -82,22 +87,25 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
     void electercal() {
-        
-            Ray ray = new Ray(transform.position, transform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
-            {
-                ElectricBoxInteraction box = hit.collider.GetComponent<ElectricBoxInteraction>();
-                if (box != null)
-                {
-                    box.TryActivate(this);
-                }
 
+        Ray ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
+        {
+            ElectricBoxInteraction box = hit.collider.GetComponent<ElectricBoxInteraction>();
+            if (box != null)
+            {
+                box.TryActivate(this);
             }
-        
+
+        }
+
     }
-     void Start()
+     private void Start()
     {
         SoundManager = SoundManager.Instance;
+
+
+
 
     }
     void Update()
@@ -110,13 +118,9 @@ public class PlayerInteractor : MonoBehaviour
             electercal();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) selectedSlotIndex = 0;
-        if (Input.GetKeyDown(KeyCode.Alpha2)) selectedSlotIndex = 1;
-        if (Input.GetKeyDown(KeyCode.Alpha3)) selectedSlotIndex = 2;
-        if (Input.GetKeyDown(KeyCode.Alpha4)) selectedSlotIndex = 3;
-        if (Input.GetKeyDown(KeyCode.Alpha5)) selectedSlotIndex = 4;
+        checckItemSelect();
 
-        ShowItemPreview();
+        // ShowItemPreview();
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -131,13 +135,40 @@ public class PlayerInteractor : MonoBehaviour
             ThrowItem();
         }
 
-    
-       
+
+
     }
+
+    private void checckItemSelect()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { selectedSlotIndex = 0;
+            ShowItemPreview();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2)) { selectedSlotIndex = 1;
+            ShowItemPreview();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3)) { selectedSlotIndex = 2;
+            ShowItemPreview();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4)) { selectedSlotIndex = 3;
+            ShowItemPreview();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            selectedSlotIndex = 4;
+            ShowItemPreview();
+        }
+    }
+
     void LateUpdate()
     {
         if (currentPreviewObject != null)
         {
+            //Debug.Log("here");
             currentPreviewObject.transform.position = throwPoint.position + transform.forward * 1f;
             currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.forward);
         }
@@ -259,16 +290,17 @@ public class PlayerInteractor : MonoBehaviour
                 break;
 
             case ItemType.flashlight:
-                if (flashlightactivated) {
-                    flashlight.SetActive(true);
-                    flashlightactivated = false;
-                Debug.Log("Used flashlight.");
+                if (flashlightactivated)
+                {
+                    pointLight.enabled = false; 
+                    flashlightactivated = false; 
+                    Debug.Log("Flashlight deactivated.");
                 }
-                else {
-                    flashlight.SetActive(false);
-
-                    flashlightactivated = true;
-
+                else
+                {
+                    pointLight.enabled = true; 
+                    flashlightactivated = true; 
+                    Debug.Log("Used flashlight.");
                 }
                 break;  case ItemType.ReceptionKey:
                 Debug.Log("Used ReceptionKey.");
@@ -333,14 +365,15 @@ public class PlayerInteractor : MonoBehaviour
         {
             Destroy(currentPreviewObject);
             currentPreviewObject = null;
+
         }
 
         ItemData item = inventoryItems[selectedSlotIndex];
         if (item != null && item.previewPrefab != null)
         {
             currentPreviewObject = Instantiate(item.previewPrefab, throwPoint.position + transform.forward * 1f, Quaternion.identity);
-            currentPreviewObject.transform.SetParent(null); 
-            currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.forward);
+            //currentPreviewObject.transform.SetParent(null); 
+            //currentPreviewObject.transform.rotation = Quaternion.LookRotation(transform.right);
         }
     }
     void invantoryOnRight() {

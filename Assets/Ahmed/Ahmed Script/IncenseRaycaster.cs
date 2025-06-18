@@ -1,14 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class IncenseRaycaster : MonoBehaviour
 {
     private PlayerInteractor player;
-    public GameObject gameObject;
+  //  public GameObject gameObject;
     public bool AlarmNotActivated= true;
+    public List<ParticleSystem> particleSystems = new List<ParticleSystem>();
+    public GameObject fire;
+    public GameObject MetalDoor;
+
+
     void Start()
     {
         player = FindObjectOfType<PlayerInteractor>();
+       GameObject[] rains = GameObject.FindGameObjectsWithTag("Rain");
+        fire = GameObject.FindGameObjectWithTag("Fire");
+        MetalDoor = GameObject.FindGameObjectWithTag("MetalDoor");
+
+        for (int i = 0; i < rains.Length; i++)
+        {
+            particleSystems.Add(rains[i].GetComponent<ParticleSystem>());
+        }
+
 
     }
 
@@ -31,16 +47,22 @@ public class IncenseRaycaster : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Alarm") && AlarmNotActivated)
                 {
+                    runRain();
+                    fire.gameObject.SetActive(false);  
+
                     StartCoroutine(TriggerAlarmSequence());
 
                     AlarmNotActivated = false;
                     Debug.Log("Alarm triggered!");
+
                 }
             }
         }
     }
     IEnumerator TriggerAlarmSequence()
     {
+        
+
         SoundManager.Instance.AlarmSource.Play();
         Debug.Log("Alarm triggered!");
 
@@ -58,5 +80,14 @@ public class IncenseRaycaster : MonoBehaviour
         SoundManager.Instance.FireDownSource.Stop();
 
         Debug.Log("Water sound stopped");
+    }
+
+    void runRain()
+    {
+        for (int i = 0; i < particleSystems.Count; i++)
+        {
+            Debug.Log("rain is played");
+           particleSystems[i].Play();
+        }
     }
 }

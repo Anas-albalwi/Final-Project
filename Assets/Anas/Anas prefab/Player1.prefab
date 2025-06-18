@@ -1027,6 +1027,7 @@ GameObject:
   - component: {fileID: 8332467095384371498}
   - component: {fileID: -5589936746291112483}
   - component: {fileID: 4565037740065208394}
+  - component: {fileID: -6329250139997952394}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player
@@ -1052,6 +1053,7 @@ Transform:
   - {fileID: 886596922551382517}
   - {fileID: 3639306514429150744}
   - {fileID: 5032078325842543687}
+  - {fileID: 4608651680931286937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4929347936742380487
@@ -1138,8 +1140,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4139309071231531524}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 0.1
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1302,6 +1304,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b319d771-cceb-4d04-b80f-0d8111419443
     m_ActionName: 'Player/InvLeft[/XInputControllerWindows/dpad/left]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6329250139997952394}
+        m_TargetAssemblyTypeName: DoorInteraction, Assembly-CSharp
+        m_MethodName: OnInteracts
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 76f03104-5da6-4468-975e-1d0f296941c7
+    m_ActionName: 'Player/OnInteracts[/DualShock4GamepadHID/buttonWest,/XInputControllerWindows/buttonWest]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -1362,6 +1380,22 @@ MonoBehaviour:
   pickupPanel: {fileID: 3618131714624016843}
   throwPoint: {fileID: 5032078325842543687}
   throwForce: 5
+  pointLight: {fileID: 0}
+--- !u!114 &-6329250139997952394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139309071231531524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f02de75632833a438b4b77a58932323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 2
+  interactor: {fileID: 0}
+  animator: {fileID: 2541877311349900346}
 --- !u!1 &4224931043359160759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,6 +1683,60 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7162395996763821256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4608651680931286937}
+  - component: {fileID: 2541877311349900346}
+  m_Layer: 0
+  m_Name: Animator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4608651680931286937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162395996763821256}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.500204, y: -1.7007127, z: -15.147618}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 975330744208671362}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2541877311349900346
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162395996763821256}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3640dff279f2b94ba4e2e2944bb572e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8473271514747621978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,10 +1977,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5144776524744939490, guid: 2de62d02e05ce734bbbcda2823380b30, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2155377958580051590}
   m_SourcePrefab: {fileID: 100100000, guid: 2de62d02e05ce734bbbcda2823380b30, type: 3}
 --- !u!4 &5032078325842543687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8006068164162663754, guid: 2de62d02e05ce734bbbcda2823380b30, type: 3}
   m_PrefabInstance: {fileID: 3084627096403915021}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7902452843507082991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5144776524744939490, guid: 2de62d02e05ce734bbbcda2823380b30, type: 3}
+  m_PrefabInstance: {fileID: 3084627096403915021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2155377958580051590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7902452843507082991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b1a61d17fa9164b809dc84d79368cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlarmNotActivated: 1
+  particleSystems: []
+  fire: {fileID: 0}
+  MetalDoor: {fileID: 0}
