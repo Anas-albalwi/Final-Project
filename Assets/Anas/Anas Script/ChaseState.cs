@@ -62,7 +62,7 @@ public class ChaseState : IEnemyState
         }
 
         
-        chef.animator.SetBool("isChasing", true);
+        chef.animator.SetBool("Walk", true);
         chef.animator.SetBool("isCrouchChasing", false);
         chef.animator.SetBool("isIdle", false);
         chef.animator.SetBool("isWalking", false);

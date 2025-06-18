@@ -56,8 +56,8 @@ public class AttackState : IEnemyState
     {
         canAttack = false;
 
-        enemy.animator.SetTrigger("isAttacking");
-        enemy.animator.SetBool("isWaiting", true);
+        enemy.animator.SetTrigger("Attack");
+        enemy.animator.SetBool("isWaiting", false);
         Debug.Log("Normal Attack Triggered");
 
         yield return new WaitForSeconds(attackCooldown);
