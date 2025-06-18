@@ -65594,6 +65594,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 700819052}
     m_Modifications:
+    - target: {fileID: 1177222216359120, guid: 3c94f70e89ee85d4db042000491cc27f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1680889846117184, guid: 3c94f70e89ee85d4db042000491cc27f, type: 3}
       propertyPath: m_Name
       value: Hall_Room_Doorway_Sep (7)
@@ -134489,6 +134493,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 312171241}
     m_Modifications:
+    - target: {fileID: 1514441331686368, guid: f75007b1e8fb25443a4f8f2c8045c82d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4516167222205178, guid: f75007b1e8fb25443a4f8f2c8045c82d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.556
@@ -135223,6 +135231,10 @@ PrefabInstance:
     - target: {fileID: 1057190408356330, guid: 13e33c41566be6641b747cdecf6a13d9, type: 3}
       propertyPath: m_Name
       value: Hall_Room_Doorway_Connector_2x4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605817972575944, guid: 13e33c41566be6641b747cdecf6a13d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4094040138139450, guid: 13e33c41566be6641b747cdecf6a13d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -186171,6 +186183,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1573786070}
     m_Modifications:
+    - target: {fileID: 1514441331686368, guid: f75007b1e8fb25443a4f8f2c8045c82d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4063068330765002, guid: f75007b1e8fb25443a4f8f2c8045c82d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.99
