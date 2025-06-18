@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0b3f86c19075a948a7754c0035c2c7c, type: 3}
-  m_Name: New Item 3
+  m_Name: Tool
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  itemType: 0
+  itemName: Tool
+  icon: {fileID: 21300000, guid: 40c266401eb4d5d40a52eff34629a1a9, type: 3}
+  itemType: 3
   worldPrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

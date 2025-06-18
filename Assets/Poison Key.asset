@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0b3f86c19075a948a7754c0035c2c7c, type: 3}
-  m_Name: New Item 1
+  m_Name: Poison Key
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  itemType: 0
-  worldPrefab: {fileID: 0}
-  previewPrefab: {fileID: 0}
+  itemName: Poison Key
+  icon: {fileID: 21300000, guid: 75ef50e2edea8864c8f36ac6e12e6a84, type: 3}
+  itemType: 4
+  worldPrefab: {fileID: 2635766450067279562, guid: 5391aaff774d57747806473848f98f07, type: 3}
+  previewPrefab: {fileID: 2635766450067279562, guid: 92566c2a56935c2459467e66f97facb3, type: 3}

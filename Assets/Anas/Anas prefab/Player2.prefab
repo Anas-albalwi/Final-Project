@@ -765,7 +765,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4139309071231531524}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f1fd509940d76ff458d6ab2729cccf72, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -839,7 +839,19 @@ MonoBehaviour:
     m_ActionId: 63311809-fbbe-4470-a5d0-28c42867dac2
     m_ActionName: 'Player/Look[/XInputControllerWindows1/rightStick,/XInputControllerWindows/rightStick]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4565037740065208394}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f42e6951-3119-4290-b143-a8e125c63e64
     m_ActionName: 'Player/Interact[/XInputControllerWindows1/buttonWest,/XInputControllerWindows/buttonWest]'
   - m_PersistentCalls:
@@ -851,19 +863,67 @@ MonoBehaviour:
     m_ActionId: 099ae485-cd04-411a-9ccb-b111a252ce86
     m_ActionName: 'Player/Attack[/XInputControllerWindows1/rightTrigger,/XInputControllerWindows/rightTrigger]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4565037740065208394}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 1d823c32-3a3b-4fb5-80a5-b3f780a48579
     m_ActionName: 'Player/Throw[/XInputControllerWindows1/buttonEast,/XInputControllerWindows/buttonEast]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4565037740065208394}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnUse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3e16bf8e-33b4-4f31-8747-0cca6b8e38a2
     m_ActionName: 'Player/use[/XInputControllerWindows1/rightTrigger,/XInputControllerWindows/rightTrigger]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4565037740065208394}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 46f5e688-2a8f-461b-8c07-21942b1c4758
     m_ActionName: 'Player/InvRight[/XInputControllerWindows1/dpad/right,/XInputControllerWindows/dpad/right]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4565037740065208394}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: OnLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b319d771-cceb-4d04-b80f-0d8111419443
     m_ActionName: 'Player/InvLeft[/XInputControllerWindows1/dpad/left,/XInputControllerWindows/dpad/left]'
   m_NeverAutoSwitchControlSchemes: 1
@@ -916,10 +976,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  inventorySlotImages: []
-  take: {fileID: 0}
-  pickupPanel: {fileID: 0}
-  throwPoint: {fileID: 0}
+  inventorySlotImages:
+  - {fileID: 5982936932073750735}
+  - {fileID: 6815708665409936950}
+  - {fileID: 4253794964539421001}
+  - {fileID: 5597899847644025434}
+  - {fileID: 5230073806337174698}
+  take: {fileID: 7679274238189360027}
+  pickupPanel: {fileID: 6980501960524128896}
+  throwPoint: {fileID: 7235001965910890900}
   throwForce: 5
 --- !u!54 &3875184040474339936
 Rigidbody:
@@ -1783,7 +1848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8006068164162663754, guid: 2de62d02e05ce734bbbcda2823380b30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.341
+      value: -0.895
       objectReference: {fileID: 0}
     - target: {fileID: 8006068164162663754, guid: 2de62d02e05ce734bbbcda2823380b30, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1791,7 +1856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8006068164162663754, guid: 2de62d02e05ce734bbbcda2823380b30, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.888
+      value: 0.504
       objectReference: {fileID: 0}
     - target: {fileID: 8006068164162663754, guid: 2de62d02e05ce734bbbcda2823380b30, type: 3}
       propertyPath: m_LocalRotation.w

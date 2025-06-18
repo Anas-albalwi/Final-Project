@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0b3f86c19075a948a7754c0035c2c7c, type: 3}
-  m_Name: New Item 2
+  m_Name: Reception Key
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  itemType: 0
-  worldPrefab: {fileID: 0}
-  previewPrefab: {fileID: 0}
+  itemName: Reception Key
+  icon: {fileID: 21300000, guid: f0aee7ee5a5fc4446bac8b540887d044, type: 3}
+  itemType: 6
+  worldPrefab: {fileID: 1611696315132941694, guid: 28a5d565db2c042429067ee69568a783, type: 3}
+  previewPrefab: {fileID: 1611696315132941694, guid: 769e087a81ac9e848af1327cde0b8942, type: 3}

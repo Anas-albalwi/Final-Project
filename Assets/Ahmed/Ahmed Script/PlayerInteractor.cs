@@ -22,6 +22,9 @@ public class PlayerInteractor : MonoBehaviour
     public float throwForce = 5f;
     public static bool incenseActivated = false;
     SoundManager SoundManager;
+    public GameObject flashlight;
+    public static bool flashlightactivated = true;
+
 
 
 
@@ -255,21 +258,39 @@ public class PlayerInteractor : MonoBehaviour
                 Debug.Log("Used lighter.");
                 break;
 
+            case ItemType.flashlight:
+                if (flashlightactivated) {
+                    flashlight.SetActive(true);
+                    flashlightactivated = false;
+                Debug.Log("Used flashlight.");
+                }
+                else {
+                    flashlight.SetActive(false);
+
+                    flashlightactivated = true;
+
+                }
+                break;  case ItemType.ReceptionKey:
+                Debug.Log("Used ReceptionKey.");
+
+                break;  case ItemType.PoisonKey:
+                Debug.Log("Used PoisonKey.");
+
+                break;  case ItemType.ElectricalKey:
+                Debug.Log("Used ElectricalKey.");
+                break;
+
             case ItemType.Charcoal:
                 Debug.Log("Used charcoal.");
                 break;
 
-            case ItemType.Key:
-                Debug.Log("Used key.");
-                break;
+           
 
             case ItemType.Tool:
                 Debug.Log("Used tool.");
                 break;
 
-            case ItemType.flashlight:
-                Debug.Log("Used tool.");
-                break;
+           
 
             case ItemType.Incense:
                 bool hasCharcoal = false;
