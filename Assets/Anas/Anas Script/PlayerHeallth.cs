@@ -23,10 +23,10 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("ÇááÇÚÈ ãÇÊ");
-        // ÊŞÏÑ ÊÖíİ åäÇ ÇäãíÔä ãæÊ Ãæ ÊÚØíá ÇáÍÑßÉ Ãæ ÅÚÇÏÉ ÇáãÔåÏ
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½");
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //gameObject.SetActive(false);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("Lose Scen");
 
     }
 }
