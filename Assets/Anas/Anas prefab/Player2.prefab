@@ -679,6 +679,7 @@ GameObject:
   - component: {fileID: 4565037740065208394}
   - component: {fileID: 3875184040474339936}
   - component: {fileID: -2114964251413674558}
+  - component: {fileID: 3267269369302564179}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Player
@@ -953,6 +954,7 @@ MonoBehaviour:
   PitchSpeed: 180
   MinPitch: -60
   MaxPitch: 60
+  anmation: {fileID: 0}
   camPivot: {fileID: 3639306514429150744}
 --- !u!114 &4565037740065208394
 MonoBehaviour:
@@ -1037,6 +1039,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   animator: {fileID: 0}
+--- !u!114 &3267269369302564179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139309071231531524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d366b25327be36f4ab929d4268fe6e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
 --- !u!1 &4426002210064894755
 GameObject:
   m_ObjectHideFlags: 0
