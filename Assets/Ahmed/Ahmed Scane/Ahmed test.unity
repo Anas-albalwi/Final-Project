@@ -721,8 +721,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b1a61d17fa9164b809dc84d79368cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 0}
   AlarmNotActivated: 1
+  particleSystems: []
+  fire: {fileID: 0}
+  MetalDoor: {fileID: 0}
 --- !u!1 &396126295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1190,7 @@ GameObject:
   - component: {fileID: 792476266}
   m_Layer: 9
   m_Name: Elec
-  m_TagString: Untagged
+  m_TagString: Electric
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4421,6 +4423,7 @@ MonoBehaviour:
   pickupPanel: {fileID: 1731579574}
   throwPoint: {fileID: 393309364}
   throwForce: 5
+  pointLight: {fileID: 0}
 --- !u!114 &2030750420
 MonoBehaviour:
   m_ObjectHideFlags: 0

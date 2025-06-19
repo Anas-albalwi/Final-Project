@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
 
 
     [Header("----------- Audio Source -----------")]
+    public List<AudioSource> audioSources = new List<AudioSource>();
     [SerializeField] public AudioSource musicSource;
     public AudioSource SFXSource;
     public AudioSource fireSource;
@@ -69,6 +70,14 @@ public class SoundManager : MonoBehaviour
         {
             fireSource.loop = true;
             fireSource.Play();
+        }
+    }
+
+    public void PlayAllAudio()
+    {
+        foreach (AudioSource ad in audioSources )
+        {
+            ad.Play();
         }
     }
 

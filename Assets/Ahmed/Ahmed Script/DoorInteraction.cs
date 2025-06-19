@@ -10,6 +10,7 @@ public class DoorInteraction : MonoBehaviour
 {
     public float rayDistance = 2f;
     public PlayerInteractor interactor;
+    public LayerMask doorLayer;
 
     private bool isHit;
     private bool triggred = false;
@@ -47,7 +48,7 @@ public class DoorInteraction : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        isHit = Physics.Raycast(ray, out hit, rayDistance);
+        isHit = Physics.Raycast(ray, out hit, rayDistance,doorLayer );
 
         if (isHit)
         {
@@ -96,32 +97,8 @@ public class DoorInteraction : MonoBehaviour
                 }
             }
 
-            if (hit.collider.CompareTag("Electric"))
-            {
-
-                for (int i = 0; i < interactor.inventoryItems.Length; i++)
-                {
-                    Debug.Log("Current Index: " + i);
-                    if (interactor.inventoryItems[i] == null)
-                    {
-                        Debug.LogWarning("Slot is Empty");
-                        continue;
-                    }
-
-                    if (interactor.inventoryItems[i].itemType == ItemType.Fuse)
-                    {
-                        interactor.pickupPanel.SetActive(true);
-                        interactor.take.text = "Press E to Put The Fuse";
-                        if (triggred)
-                        {
-                            Debug.Log("you can put the fuse");
-                            break;
-                        }
-                    }
-
-                }
-
-            }
+           
         }
+       
     }
 }

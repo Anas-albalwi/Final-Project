@@ -227,7 +227,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ba4a4d12415d47c4cb3fb5497102c66d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a99278e3b35d8340aa9aa805e3831a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -678,6 +678,7 @@ GameObject:
   - component: {fileID: -5589936746291112483}
   - component: {fileID: 4565037740065208394}
   - component: {fileID: 3875184040474339936}
+  - component: {fileID: -2114964251413674558}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Player
@@ -694,7 +695,7 @@ Transform:
   m_GameObject: {fileID: 4139309071231531524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.44116, y: 7, z: -8.992578}
+  m_LocalPosition: {x: 21.327324, y: 7.2451515, z: -8.824802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1018,6 +1019,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-2114964251413674558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139309071231531524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f02de75632833a438b4b77a58932323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: 2
+  interactor: {fileID: 4565037740065208394, guid: 309b7a793fe6b4a40bce3c47913fdb4a, type: 3}
+  doorLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  animator: {fileID: 0}
 --- !u!1 &4426002210064894755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ba4a4d12415d47c4cb3fb5497102c66d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a99278e3b35d8340aa9aa805e3831a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1414,7 +1433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ba4a4d12415d47c4cb3fb5497102c66d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a99278e3b35d8340aa9aa805e3831a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

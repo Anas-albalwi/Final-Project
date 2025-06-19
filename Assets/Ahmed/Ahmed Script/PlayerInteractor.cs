@@ -28,6 +28,9 @@ public class PlayerInteractor : MonoBehaviour
     public Light pointLight;
     public static bool flashlightactivated = false;
 
+public static bool IsPowerOn = false;
+
+
 
 
 
@@ -36,7 +39,6 @@ public class PlayerInteractor : MonoBehaviour
         if (context.performed)
         {
             TryInteract();
-            electercal();
         }
     }
     public void OnThrow(InputAction.CallbackContext context)
@@ -86,22 +88,13 @@ public class PlayerInteractor : MonoBehaviour
             }
         }
     }
-    void electercal() {
+    
 
-        Ray ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
-        {
-            ElectricBoxInteraction box = hit.collider.GetComponent<ElectricBoxInteraction>();
-            if (box != null)
-            {
-                box.TryActivate(this);
-            }
-
-        }
-
-    }
+    
      private void Start()
     {
+        Ray ray = new Ray(transform.position, transform.forward);
+
         SoundManager = SoundManager.Instance;
 
 
@@ -112,11 +105,8 @@ public class PlayerInteractor : MonoBehaviour
     {
         CheckHover();
 
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            electercal();
-        }
+       
+        
 
         checckItemSelect();
 
@@ -187,8 +177,38 @@ public class PlayerInteractor : MonoBehaviour
             }
             else
             {
-                take.text = $"You see a {hit.collider.name}, but you can't take it.";
-                pickupPanel.SetActive(true);
+                //take.text = $"You see a {hit.collider.name}, but you can't take it.";
+                //pickupPanel.SetActive(true);
+                if (hit.collider.CompareTag("Electric")) {
+                    Debug.Log(hit.collider.name);
+
+                    for (int i = 0; i < inventoryItems.Length; i++)
+           {
+
+                        //Debug.Log(inventoryItems[i].itemType);
+                        pickupPanel.SetActive(true);
+                        take.text = "You dont have";
+                        if (inventoryItems[i] != null && inventoryItems[i].itemType == ItemType.Fuse)
+                        {
+                            pickupPanel.SetActive(true);
+                           take.text = "Press E to Put the Fuse";
+
+                            IsPowerOn = true;
+                                Debug.Log("You got it");
+
+                            GameObject[] doors = GameObject.FindGameObjectsWithTag("MetalDoor");
+                            foreach (GameObject door in doors)
+                            {
+                                door.GetComponent<Animator>().SetBool("IsOpen", true);
+                            }
+
+                            break;
+                            
+                        }
+
+                    }
+
+                }
             }
         }
         else
