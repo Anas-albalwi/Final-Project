@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6c39c95a35336483c81f0f4bd8483dc3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212009
+  packageName: HORROR SYSTEM
+  packageVersion: 2.0
+  assetPath: Assets/HORROR SYSTEM/HS Assets/Art/Animations/Characters/Player/AnimationClips/Movement/Running_Backward.anim
+  uploadId: 744047
