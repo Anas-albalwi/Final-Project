@@ -8352,7 +8352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: La Hotelano
+  m_text: Sallo Hotel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d6bb6f78be652545b5a0e55fec32530, type: 2}
   m_sharedMaterial: {fileID: 3837928970926663084, guid: 2d6bb6f78be652545b5a0e55fec32530, type: 2}
