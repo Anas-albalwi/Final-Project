@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0f764ad782b134f14b9d91b5946a31a8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212009
+  packageName: HORROR SYSTEM
+  packageVersion: 2.0
+  assetPath: Assets/HORROR SYSTEM/HS Assets/Art/Animations/Characters/Player/Animator/Player_Animator.controller
+  uploadId: 744047

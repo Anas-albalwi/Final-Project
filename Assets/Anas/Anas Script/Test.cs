@@ -15,6 +15,7 @@ public class Test : MonoBehaviour
     [Header("Vertical Look Limits")]
     public float MinPitch = -60f;
     public float MaxPitch = +60f;
+    public Anmation anmation;
 
 
     public Transform camPivot; // ‰› —÷ ≈‰ «·ﬂ«„Ì—« ÂÌ ÿ›· child ·Â–« «·‹ GameObject
@@ -42,14 +43,24 @@ public class Test : MonoBehaviour
     
     void FixedUpdate()
     {
+
         // Õ—ﬂ… √„«„/Œ·›
         Vector3 forward = transform.forward * _moveAmt.y;
         Vector3 right = transform.right * _moveAmt.x;
         //_rb.MovePosition(_rb.position + (forward + right) * WalkSpeed * Time.fixedDeltaTime);
         _rb.AddForce((forward + right) * WalkSpeed, ForceMode.Force);
 
-        // œÊ—«‰ √›ﬁÌ ÕÊ· «·„ÕÊ— Y (Ì„Ì‰/Ì”«—)
-        float yawDelta = _lookAmt.x * RotateSpeed * Time.fixedDeltaTime;
+        if (_rb.linearVelocity != Vector3.zero)
+        {
+            anmation.Walk();
+        }
+        else
+        {
+            anmation.StopWalking();
+        }
+
+            // œÊ—«‰ √›ﬁÌ ÕÊ· «·„ÕÊ— Y (Ì„Ì‰/Ì”«—)
+            float yawDelta = _lookAmt.x * RotateSpeed * Time.fixedDeltaTime;
         _currentYaw += yawDelta; // Õ›Ÿ «·“«ÊÌ…
         _rb.MoveRotation(Quaternion.Euler(0f, _currentYaw, 0f));
     }
