@@ -1,16 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using UnityEngine.InputSystem;
-using Unity.VisualScripting;
-using UnityEditor;
-using NUnit.Framework;
 
 public class DoorInteraction : MonoBehaviour
 {
     public float rayDistance = 2f;
     public PlayerInteractor interactor;
     public LayerMask doorLayer;
+    public Camera playerCamera;
 
     private bool isHit;
     private bool triggred = false;
@@ -18,15 +14,7 @@ public class DoorInteraction : MonoBehaviour
     public Animator animator;
     public void OnInteracts(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            triggred = true;
-            Debug.Log("trigger status: " + triggred);
-        }
-        else
-        {
-            triggred = false;
-        }
+        triggred = context.performed;
     }
     void Update()
     {
@@ -47,7 +35,8 @@ public class DoorInteraction : MonoBehaviour
     void CheckForDoor()
     {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         isHit = Physics.Raycast(ray, out hit, rayDistance,doorLayer );
 
         if (isHit)
@@ -101,4 +90,16 @@ public class DoorInteraction : MonoBehaviour
         }
        
     }
+
+    void OnDrawGizmos()
+    {
+        if (playerCamera == null) return;
+
+        Gizmos.color = Color.green;
+        Vector3 origin = playerCamera.transform.position;
+        Vector3 direction = playerCamera.transform.forward * rayDistance;
+
+        Gizmos.DrawRay(origin, direction);
+    }
+
 }

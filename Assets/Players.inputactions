@@ -94,6 +94,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "eletric",
+                    "type": "Button",
+                    "id": "e4c83e71-c3da-4688-aa2e-9586c82b9039",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "button",
+                    "type": "Button",
+                    "id": "7a85f2af-1e61-4f0f-a111-77c23fef5d1b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -199,11 +217,33 @@
                 {
                     "name": "",
                     "id": "906f442b-4966-437c-aba6-46cc350300ef",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "OnInteracts",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "785bdf5a-9bfa-40e7-b6ea-c48d462284bf",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "OnInteracts",
+                    "action": "eletric",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0dca80f1-1240-43f5-8a41-f51fb21d1b34",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "button",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
