@@ -6,8 +6,8 @@ public class IdleState : IEnemyState
     private float idleDuration;
     private float timer;
 
-    private float minWaitTime = 5f;
-    private float maxWaitTime = 15f;
+    private float minWaitTime = 1f;
+    private float maxWaitTime = 3f;
 
     public EnemyStateType GetStateType() => EnemyStateType.Idle;
 

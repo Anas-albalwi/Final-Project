@@ -948,8 +948,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WalkSpeed: 5
-  RotateSpeed: 180
-  PitchSpeed: 180
+  RotateSpeed: 100
+  PitchSpeed: 50
   MinPitch: -60
   MaxPitch: 60
   camPivot: {fileID: 3639306514429150744}

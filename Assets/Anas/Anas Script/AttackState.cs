@@ -5,7 +5,7 @@ public class AttackState : IEnemyState
 {
     private Enemy enemy;
     private Transform player;
-    private float attackCooldown = 3f;
+    private float attackCooldown = 5f;
     private bool canAttack = true;
 
     public EnemyStateType GetStateType() => EnemyStateType.Attack;
