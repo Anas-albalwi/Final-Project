@@ -27,13 +27,31 @@ public class PlayerInteractor : MonoBehaviour
     SoundManager SoundManager;
     public Light pointLight;
     public static bool flashlightactivated = false;
-
+    public Camera playerCamera;
+    public int button;
+    public static int CountButton;
 public static bool IsPowerOn = false;
+    private bool canget = true;
+    public bool getbutton = true;
+    public bool ele = false;
+    public bool bu = false;
 
 
 
-
-
+    public void Button(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            bu = true;
+        }
+    }
+    public void Electric(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            ele = true;
+        }
+    }
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -79,7 +97,7 @@ public static bool IsPowerOn = false;
     }
     void TryInteract()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
         {
             if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
@@ -105,8 +123,19 @@ public static bool IsPowerOn = false;
     {
         CheckHover();
 
-       
-        
+
+        if (CountButton >= 2 && canget) {
+
+
+            GameObject[] doorss = GameObject.FindGameObjectsWithTag("Metaldoor");
+            foreach (GameObject door in doorss)
+            {
+                door.GetComponent<Animator>().SetBool("IsOpen", true);
+            }
+
+
+
+        }
 
         checckItemSelect();
 
@@ -166,10 +195,9 @@ public static bool IsPowerOn = false;
 
     void CheckHover()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactLayer))
         {
-            Debug.Log(hit.collider.name);
             if (hit.collider.TryGetComponent<IInteractable>(out var interactable))
             {
                 take.text = $"Press E to take {hit.collider.name}";
@@ -180,36 +208,56 @@ public static bool IsPowerOn = false;
                 //take.text = $"You see a {hit.collider.name}, but you can't take it.";
                 //pickupPanel.SetActive(true);
                 if (hit.collider.CompareTag("Electric")) {
+                    pickupPanel.SetActive(true);
+                    take.text = "You dont have Fuse";
                     Debug.Log(hit.collider.name);
-
-                    for (int i = 0; i < inventoryItems.Length; i++)
-           {
-
-                        //Debug.Log(inventoryItems[i].itemType);
-                        pickupPanel.SetActive(true);
-                        take.text = "You dont have";
-                        if (inventoryItems[i] != null && inventoryItems[i].itemType == ItemType.Fuse)
+                   
+                        for (int i = 0; i < inventoryItems.Length; i++)
                         {
-                            pickupPanel.SetActive(true);
-                           take.text = "Press E to Put the Fuse";
 
-                            IsPowerOn = true;
-                                Debug.Log("You got it");
-
-                            GameObject[] doors = GameObject.FindGameObjectsWithTag("MetalDoor");
-                            foreach (GameObject door in doors)
+                            //Debug.Log(inventoryItems[i].itemType);
+                            
+                            if (inventoryItems[i] != null && inventoryItems[i].itemType == ItemType.Fuse)
                             {
-                                door.GetComponent<Animator>().SetBool("IsOpen", true);
+                            pickupPanel.SetActive(true);
+                            take.text = "Press L1 to Turn in The Electrical";
+                            if (ele)
+                            {
+
+                                IsPowerOn = true;
+                                Debug.Log("You Opend Doors");
+
+                                GameObject[] doors = GameObject.FindGameObjectsWithTag("MetalDoor");
+                                foreach (GameObject door in doors)
+                                {
+                                    door.GetComponent<Animator>().SetBool("IsOpen", true);
+                                }
+
+                                break;
+
                             }
 
-                            break;
-                            
                         }
-
                     }
-
                 }
-            }
+
+                
+                if (hit.collider.CompareTag("Button"))
+                {
+
+                    pickupPanel.SetActive(true);
+                    take.text = "Press X to Trigger The button";
+                    if (bu) {
+                        button = 1;
+                        if (getbutton) {
+                            CountButton += 1;
+                            Debug.Log(CountButton);
+                            getbutton = false;
+
+                        }
+                    }
+                }
+                }
         }
         else
         {

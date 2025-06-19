@@ -11,6 +11,8 @@ TagManager:
   - Fire
   - Electric
   - MetalDoor
+  - Button
+  - Metaldoor
   layers:
   - Default
   - TransparentFX

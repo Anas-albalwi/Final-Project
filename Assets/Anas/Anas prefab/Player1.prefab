@@ -1028,7 +1028,6 @@ GameObject:
   - component: {fileID: -5589936746291112483}
   - component: {fileID: 4565037740065208394}
   - component: {fileID: -6329250139997952394}
-  - component: {fileID: 8120268571783962725}
   m_Layer: 8
   m_Name: Player1
   m_TagString: Player
@@ -1045,7 +1044,7 @@ Transform:
   m_GameObject: {fileID: 4139309071231531524}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.56368, y: 5.834587, z: -19.11028}
+  m_LocalPosition: {x: 20.534445, y: 7.47742, z: -9.022699}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1321,6 +1320,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 76f03104-5da6-4468-975e-1d0f296941c7
     m_ActionName: 'Player/OnInteracts[/DualShock4GamepadHID/buttonWest,/XInputControllerWindows/buttonWest]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4565037740065208394}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e4c83e71-c3da-4688-aa2e-9586c82b9039
+    m_ActionName: 'Player/eletric[/DualShock4GamepadHID/leftShoulder]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4565037740065208394}
+        m_TargetAssemblyTypeName: PlayerInteractor, Assembly-CSharp
+        m_MethodName: Button
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7a85f2af-1e61-4f0f-a111-77c23fef5d1b
+    m_ActionName: 'Player/button[/XInputControllerWindows/leftTrigger,/XInputControllerWindows1/leftTrigger]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
@@ -1361,7 +1392,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   inventoryItems:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: eb1af5b7626e8774a885b36172b781cf, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1382,6 +1413,11 @@ MonoBehaviour:
   throwPoint: {fileID: 5032078325842543687}
   throwForce: 5
   pointLight: {fileID: 0}
+  playerCamera: {fileID: 283796746449456826}
+  button: 0
+  getbutton: 1
+  ele: 0
+  bu: 0
 --- !u!114 &-6329250139997952394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,25 +1435,8 @@ MonoBehaviour:
   doorLayer:
     serializedVersion: 2
     m_Bits: 1024
+  playerCamera: {fileID: 283796746449456826}
   animator: {fileID: 2541877311349900346}
---- !u!114 &8120268571783962725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4139309071231531524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f02de75632833a438b4b77a58932323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayDistance: 2
-  interactor: {fileID: 0}
-  doorLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  animator: {fileID: 0}
 --- !u!1 &4224931043359160759
 GameObject:
   m_ObjectHideFlags: 0
